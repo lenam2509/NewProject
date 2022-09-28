@@ -20,13 +20,12 @@ function Header() {
             />
           </Link>
           <div className="relative flex-1">
-            <div className="ui-search-input outline rounded w-fit overflow-hidden m-search-input h-8 flex-1 !w-full">
+            <div className="ui-search-input outline rounded  overflow-hidden m-search-input h-8 flex-1 !w-full">
               <div className="ui-textfield flex-1 prefixright">
                 <div className="ui-textfield_wrapper">
                   <input
                     className="ui-textfield_input !pr-10 !border-none !rounded-none"
                     placeholder="Bạn đang tìm..."
-                    
                   />
                   <div className="ui-textfield_prefixright">
                     <span
@@ -93,6 +92,121 @@ function Header() {
               Đăng nhập / Đăng ký
             </button>
           </a>
+        </div>
+      </div>
+      
+      {/* menu */}
+      <div className="m-menu flex bg-[#f6ce00] relative">
+        <div className="flex m-auto w-full max-w-[1200px] h-[36px]">
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Thương Hiệu</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                <div className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative">
+                  <a href="#" className="px-3 py-2 flex items-center">
+                    <span className="text-sm font-normal">NUKUTI</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Nam</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Nữ</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Trẻ em</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Tất cả sản phẩm</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Mới về tuần này</span>
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Phụ kiện hàng hiệu</span>
+            </a>
+          </div>
+          <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
+            <a href="#" className="px-3 py-2 flex items-center">
+              <span className="text-sm font-semibold">Săn SALE</span>
+              <span
+                className="ui-icon ml-2"
+                aria-hidden="true"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  backgroundImage:
+                    'url("https://cdn.hoang-phuc.com/svg/arrow-down.svg")',
+                }}
+              />
+            </a>
+          </div>
         </div>
       </div>
     </>
