@@ -1,8 +1,8 @@
 import React from "react";
-import  Image  from "next/image";
+import Image from "next/image";
 function Footer() {
   return (
-    <>
+    <footer>
       <div className="flex w-full bg-black py-6 mt-10">
         <div className="text-xs mx-auto w-[1200px] text-white">
           <div className="grid grid-cols-6 gap-6 w-full">
@@ -228,7 +228,7 @@ function Footer() {
           </div>
         </div>
       </div>
-    </>
+    </footer>
   );
 }
 

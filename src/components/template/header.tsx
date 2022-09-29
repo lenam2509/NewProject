@@ -2,8 +2,72 @@ import Link from "next/link";
 import React from "react";
 
 function Header() {
+  const thuonghieu: string[] = [
+    "NUNI&NICK",
+    "Kappa",
+    "Ecko Unltd",
+    "Superga",
+    "Staple",
+  ];
+  const nam: string[] = [
+    "Giày",
+    "Dép",
+    "Áo Thun",
+    "Áo Khoác",
+    "Áo sơ mi",
+    "Quần dài",
+    "Quần short",
+    "Đồ lót nam",
+    "Phụ kiện nam",
+  ];
+  const nu: string[] = [
+    "Giày",
+    "Dép",
+    "Áo Thun",
+    "Áo Khoác",
+    "Áo sơ mi",
+    "Quần dài",
+    "Quần short",
+    "Đồ lót nữ",
+    "Váy đầm",
+    "Phụ kiện nữ",
+  ];
+  const treem: string[] = ["Bé trai", "Bé gái", "Giày đi học"];
+  const allproduct: string[] = [
+    "Giày thời trang",
+    "Áo thun thời trang",
+    "Quần dài thời trang",
+    "Nón mũ thời trang",
+    "Balo túi xách thời trang",
+    "Quần jean thời trang",
+    "Dép thời trang",
+    "Váy đầm thời trang",
+    "Áo polo thời trang",
+    "Phụ kiện thời trang",
+    "Quần short thời trang",
+    "Vớ thời trang",
+    "Đồ lót thời trang",
+    "Áo khoác thời trang",
+    "Giày trẻ em thời trang",
+  ];
+  const sansale: string[] = [
+    "Áo thun sale",
+    "Giày sale",
+    "Quần dài sale",
+    "Dép sale",
+  ];
   return (
-    <>
+    <header className="fixed z-50 w-screen top-0 left-0 bg-primary-900 h-[48px]">
+      <a href="#" className="relative flex w-screen h-[38px] justify-center">
+        <img
+          src="https://cdn.tgdd.vn/2022/09/banner/1200-44-1200x44-7.png"
+          height={38}
+          width={1200}
+          alt="banner"
+          className="indent-[-999px] object-contain"
+          style={{ width: "100%", height: "38px", background: "orange" }}
+        />
+      </a>
       <div className="flex bg-black">
         <div
           className="flex items-center m-auto gap-4 py-2"
@@ -94,7 +158,7 @@ function Header() {
           </a>
         </div>
       </div>
-      
+
       {/* menu */}
       <div className="m-menu flex bg-[#f6ce00] relative">
         <div className="flex m-auto w-full max-w-[1200px] h-[36px]">
@@ -112,13 +176,21 @@ function Header() {
                 }}
               />
             </a>
+
             <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
               <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
-                <div className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative">
-                  <a href="#" className="px-3 py-2 flex items-center">
-                    <span className="text-sm font-normal">NUKUTI</span>
-                  </a>
-                </div>
+                {thuonghieu.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -136,6 +208,22 @@ function Header() {
                 }}
               />
             </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                {nam.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
             <a href="#" className="px-3 py-2 flex items-center">
@@ -151,6 +239,22 @@ function Header() {
                 }}
               />
             </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                {nu.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
             <a href="#" className="px-3 py-2 flex items-center">
@@ -166,6 +270,22 @@ function Header() {
                 }}
               />
             </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                {treem.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
             <a href="#" className="px-3 py-2 flex items-center">
@@ -181,6 +301,22 @@ function Header() {
                 }}
               />
             </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                {allproduct.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
             <a href="#" className="px-3 py-2 flex items-center">
@@ -206,10 +342,26 @@ function Header() {
                 }}
               />
             </a>
+            <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
+              <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
+                {sansale.map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group-one flex items-center  transition-color duration-300 ease-in-out cursor-pointer hover:!bg-white group-two relative"
+                    >
+                      <a href="#" className="px-3 py-2 flex items-center">
+                        <span className="text-sm font-semibold">{item}</span>
+                      </a>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </header>
   );
 }
 
