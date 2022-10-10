@@ -7,6 +7,12 @@
   .group-two:hover .group-two-hover\:flex {
      display: flex;
   }
+  .line-clamp-2{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 }
 
 

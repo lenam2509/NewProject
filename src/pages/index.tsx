@@ -26,6 +26,22 @@ const index: NextPage = () => {
     ["Vớ Nữ", "/images/danhmuc_19.jpg"],
     ["Giày Bé Gái", "/images/danhmuc_20.jpg"],
   ];
+
+  const aothun = [
+    ["KAPPA ÁO THUN TAY NGẮN MEN 341E69W", "/images/ao_thun1.jpg"],
+    ["KAPPA ÁO THUN TAY NGẮN MEN 351E69W", "/images/ao_thun2.jpg"],
+    ["KAPPA ÁO THUN TAY NGẮN MEN 341E69W", "/images/ao_thun1.jpg"],
+    ["KAPPA ÁO THUN TAY NGẮN MEN 351E69W", "/images/ao_thun2.jpg"],
+    ["KAPPA ÁO THUN TAY NGẮN MEN 341E69W", "/images/ao_thun1.jpg"],
+    ["KAPPA ÁO THUN TAY NGẮN MEN 351E69W", "/images/ao_thun2.jpg"],
+  ];
+
+  const giay = [
+    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
+    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
+    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
+    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
+  ];
   return (
     <div className="w-[1200px] min-h-screen mx-auto pt-[122px]">
       <div className="flex flex-col space-y-2 py-2">
@@ -74,7 +90,7 @@ const index: NextPage = () => {
               })}
             </aside>
             <aside className="flex items-start overflow-hidden">
-            {danhmuc2.map((item, index) => {
+              {danhmuc2.map((item, index) => {
                 return (
                   <h3 className="inline-block align-top py-3 px-0" key={index}>
                     <a
@@ -98,6 +114,240 @@ const index: NextPage = () => {
                 );
               })}
             </aside>
+          </div>
+        </div>
+        <div className="rounded-md shadow mt-1">
+          <a href="#">
+            <Image
+              src="/images/baner_ao_thun.jpg"
+              width="1200px"
+              height="45px"
+              alt="banner"
+            ></Image>
+          </a>
+          <div className="grid grid-cols-5 gap-3.5 min-h-[430px]">
+            {aothun.map((item, index) => {
+              return (
+                <div className="w-full flex" key={index}>
+                  <div
+                    className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
+                    style={{ width: "216px" }}
+                  >
+                    <div className="flex items-center justify-center w-full rounded-[4px] cursor-pointer">
+                      <div className="relative w-full rounded cursor-pointer h-[288px]">
+                        <div className="absolute top-0 left-0 z-[3]" style={{}}>
+                          <Image
+                            src="/images/sale.png"
+                            alt="sale"
+                            width={35}
+                            height={35}
+                            className="indent-[-999px]"
+                            style={{ width: "35px", height: "35px" }}
+                          />
+                        </div>
+                        <a
+                          href=""
+                          className="w-full h-[288px] cursor-pointer relative flex items-center"
+                        >
+                          <Image
+                            src={item[1]}
+                            alt="product item"
+                            width={216}
+                            height={288}
+                            className="indent-[-999px]"
+                            style={{ width: "216px" }}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <span className="flex gap-x-4 line-clamp-2 h-[40px]">
+                      <a href="">
+                        <p className="text-[13px] max-h-full line-clamp-2">
+                          {item[0]}
+                        </p>
+                      </a>
+                    </span>
+                    <div className="flex flex-wrap items-center">
+                      <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
+                        199.000 ₫
+                      </div>
+                      <div className="flex font-normal text-neutral-500 text-[14px]">
+                        <p className="line-through">299.000 ₫</p>
+                        <div className="flex flex-wrap">
+                          <p className="text-neutral pl-2 font-normal text-[14px]">
+                            -33%
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <span className="ui-divider block w-full h-[1px] bg-[#00000026]"></span>
+          <div className="w-full flex justify-center items-center text-blue-500 py-2">
+            <div className="w-max cursor-pointer">
+              <a href="" className="text-[14px] leading-[20px] font-normal">
+                Xem thêm <span className="font-bold">196</span> sản phẩm
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-md shadow mt-1">
+          <a href="#">
+            <Image
+              src="/images/baner_ao_polo.jpg"
+              width="1200px"
+              height="45px"
+              alt="banner"
+            ></Image>
+          </a>
+          <div className="grid grid-cols-5 gap-3.5 min-h-[430px]">
+            {aothun.map((item, index) => {
+              return (
+                <div className="w-full flex" key={index}>
+                  <div
+                    className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
+                    style={{ width: "216px" }}
+                  >
+                    <div className="flex items-center justify-center w-full rounded-[4px] cursor-pointer">
+                      <div className="relative w-full rounded cursor-pointer h-[288px]">
+                        <div className="absolute top-0 left-0 z-[3]" style={{}}>
+                          <Image
+                            src="/images/sale.png"
+                            alt="sale"
+                            width={35}
+                            height={35}
+                            className="indent-[-999px]"
+                            style={{ width: "35px", height: "35px" }}
+                          />
+                        </div>
+                        <a
+                          href=""
+                          className="w-full h-[288px] cursor-pointer relative flex items-center"
+                        >
+                          <Image
+                            src={item[1]}
+                            alt="product item"
+                            width={216}
+                            height={288}
+                            className="indent-[-999px]"
+                            style={{ width: "216px" }}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <span className="flex gap-x-4 line-clamp-2 h-[40px]">
+                      <a href="">
+                        <p className="text-[13px] max-h-full line-clamp-2">
+                          {item[0]}
+                        </p>
+                      </a>
+                    </span>
+                    <div className="flex flex-wrap items-center">
+                      <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
+                        199.000 ₫
+                      </div>
+                      <div className="flex font-normal text-neutral-500 text-[14px]">
+                        <p className="line-through">299.000 ₫</p>
+                        <div className="flex flex-wrap">
+                          <p className="text-neutral pl-2 font-normal text-[14px]">
+                            -33%
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <span className="ui-divider block w-full h-[1px] bg-[#00000026]"></span>
+          <div className="w-full flex justify-center items-center text-blue-500 py-2">
+            <div className="w-max cursor-pointer">
+              <a href="" className="text-[14px] leading-[20px] font-normal">
+                Xem thêm <span className="font-bold">196</span> sản phẩm
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-md shadow mt-1">
+          <a href="#">
+            <Image
+              src="/images/baner_giay.jpg"
+              width="1200px"
+              height="45px"
+              alt="banner"
+            ></Image>
+          </a>
+          <div className="grid grid-cols-5 gap-3.5 min-h-[430px]">
+            {giay.map((item, index) => {
+              return (
+                <div className="w-full flex" key={index}>
+                  <div
+                    className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
+                    style={{ width: "216px" }}
+                  >
+                    <div className="flex items-center justify-center w-full rounded-[4px] cursor-pointer">
+                      <div className="relative w-full rounded cursor-pointer h-[288px]">
+                        <div className="absolute top-0 left-0 z-[3]" style={{}}>
+                          <Image
+                            src="/images/sale.png"
+                            alt="sale"
+                            width={35}
+                            height={35}
+                            className="indent-[-999px]"
+                            style={{ width: "35px", height: "35px" }}
+                          />
+                        </div>
+                        <a
+                          href=""
+                          className="w-full h-[288px] cursor-pointer relative flex items-center"
+                        >
+                          <Image
+                            src={item[1]}
+                            alt="product item"
+                            width={216}
+                            height={288}
+                            className="indent-[-999px]"
+                            style={{ width: "216px" }}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <span className="flex gap-x-4 line-clamp-2 h-[40px]">
+                      <a href="">
+                        <p className="text-[13px] max-h-full line-clamp-2">
+                          {item[0]}
+                        </p>
+                      </a>
+                    </span>
+                    <div className="flex flex-wrap items-center">
+                      <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
+                        199.000 ₫
+                      </div>
+                      <div className="flex font-normal text-neutral-500 text-[14px]">
+                        <p className="line-through">299.000 ₫</p>
+                        <div className="flex flex-wrap">
+                          <p className="text-neutral pl-2 font-normal text-[14px]">
+                            -33%
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <span className="ui-divider block w-full h-[1px] bg-[#00000026]"></span>
+          <div className="w-full flex justify-center items-center text-blue-500 py-2">
+            <div className="w-max cursor-pointer">
+              <a href="" className="text-[14px] leading-[20px] font-normal">
+                Xem thêm <span className="font-bold">196</span> sản phẩm
+              </a>
+            </div>
           </div>
         </div>
       </div>
