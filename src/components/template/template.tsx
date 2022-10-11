@@ -9,13 +9,13 @@ type Props = {
 
 function Template({children}: Props) {
   return (
-    <div>
+    <>
         <Header />
         <main>
             {children}
         </main>
         <Footer />
-    </div>
+    </>
   )
 }
 

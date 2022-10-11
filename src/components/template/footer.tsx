@@ -217,13 +217,7 @@ function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <img
-                src="https://image.hoang-phuc.com/static/bo-cong-thuong.png"
-                alt="BỘ CÔNG THƯƠNG"
-                width={135}
-                height={51}
-                style={{ width: "135px", height: "51px" }}
-              />
+            
             </a>
           </div>
         </div>

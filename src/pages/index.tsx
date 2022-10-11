@@ -1,7 +1,17 @@
 import { NextPage } from "next";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 const index: NextPage = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+     axios.get("https://api.trungthanhweb.com/public/api/allProduct").then((res) => {
+       setData(res.data);
+    })
+  },[]);
+  console.log("data: ", data);
+  
   const danhmuc1 = [
     ["Áo Khoác Nam", "/images/danhmuc_1.jpg"],
     ["Dép Nam", "/images/danhmuc_2.jpg"],
@@ -36,12 +46,7 @@ const index: NextPage = () => {
     ["KAPPA ÁO THUN TAY NGẮN MEN 351E69W", "/images/ao_thun2.jpg"],
   ];
 
-  const giay = [
-    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
-    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
-    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
-    ["KAPPA GIÀY THỂ THAO NAM 341E69W", "/images/giay_1.jpg"],
-  ];
+  const giay = data
   return (
     <div className="w-[1200px] min-h-screen mx-auto pt-[122px]">
       <div className="flex flex-col space-y-2 py-2">
@@ -282,7 +287,7 @@ const index: NextPage = () => {
             ></Image>
           </a>
           <div className="grid grid-cols-5 gap-3.5 min-h-[430px]">
-            {giay.map((item, index) => {
+            {giay.slice(0,5).map((item, index) => {
               return (
                 <div className="w-full flex" key={index}>
                   <div
@@ -306,7 +311,7 @@ const index: NextPage = () => {
                           className="w-full h-[288px] cursor-pointer relative flex items-center"
                         >
                           <Image
-                            src={item[1]}
+                            src="/images/giay_1.jpg"
                             alt="product item"
                             width={216}
                             height={288}
@@ -319,7 +324,7 @@ const index: NextPage = () => {
                     <span className="flex gap-x-4 line-clamp-2 h-[40px]">
                       <a href="">
                         <p className="text-[13px] max-h-full line-clamp-2">
-                          {item[0]}
+                          {item.prodName}
                         </p>
                       </a>
                     </span>
