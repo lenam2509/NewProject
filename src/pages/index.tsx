@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 const index: NextPage = () => {
-  const [data, setData] = useState([]);
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [data, setData] = useState<any[]>([]);
+  // eslint-disable-next-line
   useEffect(() => {
      axios.get("https://api.trungthanhweb.com/public/api/allProduct").then((res) => {
        setData(res.data);
