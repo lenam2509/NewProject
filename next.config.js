@@ -5,3 +5,9 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+// next.config.js
+module.exports = {
+  images: {
+    domains: ['api.trungthanhweb.com'],
+  },
+}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import Link from "next/link";
 import React from "react";
 
@@ -288,7 +289,8 @@ function Header() {
             </div>
           </div>
           <div className="group-one flex items-center transition-color duration-300 ease-in-out cursor-pointer hover:bg-amber-200">
-            <a href="#" className="px-3 py-2 flex items-center">
+           <Link href="/products">
+            <a  className="px-3 py-2 flex items-center">
               <span className="text-sm font-semibold">Tất cả sản phẩm</span>
               <span
                 className="ui-icon ml-2"
@@ -301,6 +303,7 @@ function Header() {
                 }}
               />
             </a>
+            </Link>
             <div className="bg-amber-200 absolute w-full top-full left-0 hidden min-h-[36px] group-one-hover:flex z-50">
               <div className="flex m-auto w-[1200px] max-w-[1200px] h-full">
                 {allproduct.map((item, index) => {
