@@ -1,15 +1,26 @@
-import React from 'react'
+import { useState } from 'react'
 import { BsFacebook, BsApple } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai'
 
 const login = () => {
+  
+  const [showPassword, setShowPassword] = useState(false)
+  const handleShow = () => {
+    setShowPassword(!showPassword)
+    console.log(showPassword)
+  }
+  
   return (
     <div className='w-full h-[600px] bg-[#fff] mt-[122px]'>
       <div className='bg-[#f0f2f5] w-[50%] h-full m-auto flex'>
         <div className='bg-[#fff] w-[60%] h-auto m-auto flex-col rounded-md'>
           <form>
             <input type="text" placeholder='Tên đăng nhập hoặc Email' className='bg-[#f0f2f5] w-[90%] h-[40px] rounded-md border-none mt-5 ml-[5%] outline-none pl-[10px] placeholder:text-black'/>
-            <input type="password" placeholder='Mật khẩu' className='bg-[#f0f2f5] w-[90%] h-[40px] rounded-md border-none mt-5 ml-[5%] outline-none pl-[10px] placeholder:text-black'/>
+            <div className='flex relative'>
+              <input type={showPassword ? 'text' : 'password'} placeholder='Mật khẩu' className='bg-[#f0f2f5] w-[90%] h-[40px] rounded-md border-none mt-5 ml-[5%] outline-none pl-[10px] placeholder:text-black'/>
+              <span className='absolute top-9 cursor-pointer right-16' onClick={handleShow}>{showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</span>
+            </div>
             <button type='submit' className='bg-[#f6ce00] h-[40px] text-black rounded-md mt-5 w-[90%] ml-[5%] hover:bg-[#d4b102] cursor-pointer text-[20px] uppercase'>đăng nhập</button>
           </form>
           <div className='w-[120px] mt-2 ml-[5%]'>
