@@ -8,13 +8,13 @@ const login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const handleShow = () => {
     setShowPassword(!showPassword)
-    console.log(showPassword)
   }
   
   return (
-    <div className='w-full h-[600px] bg-[#fff] mt-[122px]'>
+    <div className='w-full h-[500px] bg-[#fff] mt-[122px]'>
       <div className='bg-[#f0f2f5] w-[50%] h-full m-auto flex'>
         <div className='bg-[#fff] w-[60%] h-auto m-auto flex-col rounded-md'>
+        <h2 className='pt-2 pl-[5%] text-[25px]'>Đăng nhập</h2>
           <form>
             <input type="text" placeholder='Tên đăng nhập hoặc Email' className='bg-[#f0f2f5] w-[90%] h-[40px] rounded-md border-none mt-5 ml-[5%] outline-none pl-[10px] placeholder:text-black'/>
             <div className='flex relative'>
@@ -43,8 +43,8 @@ const login = () => {
             </button>
           </div>
           <div className='ml-[5%] mt-2 mb-2'>
-            Bạn mới biết đến <a href="/">Hoang Phuc Store?</a>
-            <a href="/register" className='capitalize ml-1'>đăng ký</a>
+            Bạn mới biết đến <a href="/" className='hover:underline'>Hoang Phuc Store?</a>
+            <a href="/register" className='capitalize ml-1 text-yellow-600 hover:underline'>đăng ký</a>
           </div>
         </div>
       </div>
