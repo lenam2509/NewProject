@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import Link from "next/link";
 
 const login = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -64,15 +65,15 @@ const login = () => {
           </div>
           <div className="ml-[5%] mt-2 mb-2">
             Bạn mới biết đến{" "}
-            <a href="/" className="hover:underline">
+            <Link href="/" className="hover:underline">
               Hoang Phuc Store?
-            </a>
-            <a
+            </Link>
+            <Link
               href="/register"
               className="capitalize ml-1 text-yellow-600 hover:underline"
             >
               đăng ký
-            </a>
+            </Link>
           </div>
         </div>
       </div>

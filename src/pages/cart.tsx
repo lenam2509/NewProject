@@ -1,6 +1,7 @@
 import Image from "next/image"
 import aothun1 from '../assets/ao_thun1.jpg'
 import { BsTrash } from 'react-icons/bs'
+import Link from "next/link"
 
 const cart = () => {
   return (
@@ -16,7 +17,7 @@ const cart = () => {
               </div>
               <div className="w-[370px] h-[80px] my-[10px]">
                 <div className="w-full h-[50%]">
-                  <a href="#" className="text-[12px] ml-[10px] hover:underline">KAPPA ÁO THUN TAY NGẮN MEN 341E69W</a>
+                  <Link href="#" className="text-[12px] ml-[10px] hover:underline">KAPPA ÁO THUN TAY NGẮN MEN 341E69W</Link>
                 </div>
                 <div className="w-full h-[50%] flex flex-col justify-center">
                   <p className="text-[12px] ml-[10px]">199.000 ₫</p>
