@@ -2,7 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const index = () => {
+export const getStaticProps = async () => {
+  const res = await fetch("https://api.trungthanhweb.com/api/products");
+  const data = await res.json();
+
+  return {
+    props: { products: data },
+  }
+
+}
+
+const index = ({products}) => {
   const Filter1 = () => {
     const [showFilters, setShowfilters] = useState(false);
     const [check, setCheck] = useState({
@@ -765,7 +775,6 @@ const index = () => {
       </div>
     );
   };
-  const products = [...Array(50)];
   return (
     <>
       <div className="w-[1200px] min-h-screen mx-auto pt-[122px]">
@@ -846,7 +855,7 @@ const index = () => {
                         <Link href={"/products/"}>
                           <a className="w-full h-[288px] cursor-pointer relative flex items-center">
                             <Image
-                              src="/images/ao_thun1.jpg"
+                              src={product.image}
                               alt="product item"
                               width={220}
                               height={288}
@@ -860,20 +869,23 @@ const index = () => {
                       <Link href={"/products/"}>
                         <a>
                           <p className="text-[13px] max-h-full line-clamp-2">
-                            KAPPA ÁO THUN TAY NGẮN MEN 341E69W
+                            {product.name}
                           </p>
                         </a>
                       </Link>
                     </span>
                     <div className="flex flex-wrap items-center">
                       <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
-                        10000000 đ
+                      {product.discount > 0 ? (product.price - (product.price * product.discount) / 100).toLocaleString(
+                          "vi-VN"
+                        ): product.price.toLocaleString("vi-VN")} đ
+                        
                       </div>
                       <div className="flex font-normal text-neutral-500 text-[14px]">
-                        <p className="line-through">1000000</p>
+                        <p className="line-through">{product.discount == 0 ?'': product.price} </p>
                         <div className="flex flex-wrap">
                           <p className="text-neutral pl-2 font-normal text-[14px]">
-                            -33%
+                           {product.discount}%
                           </p>
                         </div>
                       </div>

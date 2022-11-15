@@ -4,20 +4,22 @@ import Image from "next/image";
 import axios from "axios";
 const ProductDetail = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { slug } = router.query;
   const [product, setProduct] = useState(null);
   useEffect(() => {
-    if (id) {
+    if (slug) {
       axios
-        .get(`https://api.trungthanhweb.com/api/singleProduct?id=${id}`)
-        .then((res) => {
-          setProduct(res.data);
-        });
+        .get(`https://api.trungthanhweb.com/api/singleProd/${slug}`)
+        .then((res) => setProduct(res.data));
     }
-  }, [id]);
+  }, [slug]);
 
+  
   if (product) {
     console.log("product:", product);
+  }else{
+    console.log("no product");
+    
   }
 
   return (
@@ -35,10 +37,10 @@ const ProductDetail = () => {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-               {product[0].brand}
+               {product[0].brandname}
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                {product[0].productName}
+                {product[0].name}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
