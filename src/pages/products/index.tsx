@@ -2,17 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-export const getStaticProps = async () => {
-  const res = await fetch("https://api.trungthanhweb.com/api/products");
-  const data = await res.json();
-
-  return {
-    props: { products: data },
-  }
-
+type Props = {
+  products: [];
 }
 
-const index = ({products}) => {
+const index = ({products}: Props) => {
   const Filter1 = () => {
     const [showFilters, setShowfilters] = useState(false);
     const [check, setCheck] = useState({
@@ -43,14 +37,14 @@ const index = ({products}) => {
       luxelondon,
     } = check;
 
-    const changeHandler = (e) => {
+    const changeHandler = (e:any) => {
       setCheck({
         ...check,
         [e.target.name]: e.target.checked,
       });
     };
 
-    const applyFilters = (e) => {
+    const applyFilters = (e:any) => {
       setCheck({
         ...check,
         leather: false,
@@ -835,7 +829,7 @@ const index = ({products}) => {
                   </div>
                 </div>
               </div> */}
-              {products.map((product, index) => (
+              {products.map((product:any, index) => (
                 <div className="w-full flex" key={index}>
                   <div
                     className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
@@ -852,10 +846,10 @@ const index = ({products}) => {
                             className="indent-[-999px]"
                           />
                         </div>
-                        <Link href={"/products/" + product.slug +".html"}>
+                        <Link href={"/products/" + product?.slug +".html"}>
                           <a className="w-full h-[288px] cursor-pointer relative flex items-center">
                             <Image
-                              src={product.image}
+                              src={product?.image}
                               alt="product item"
                               width={220}
                               height={288}
@@ -869,23 +863,23 @@ const index = ({products}) => {
                       <Link href={"/products/"}>
                         <a>
                           <p className="text-[13px] max-h-full line-clamp-2">
-                            {product.name}
+                            {product?.name}
                           </p>
                         </a>
                       </Link>
                     </span>
                     <div className="flex flex-wrap items-center">
                       <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
-                      {product.discount > 0 ? (product.price - (product.price * product.discount) / 100).toLocaleString(
+                      {product?.discount > 0 ? (product?.price - (product?.price * product?.discount) / 100).toLocaleString(
                           "vi-VN"
-                        ): product.price.toLocaleString("vi-VN")} đ
+                        ): product?.price.toLocaleString("vi-VN")} đ
                         
                       </div>
                       <div className="flex font-normal text-neutral-500 text-[14px]">
-                        <p className="line-through">{product.discount == 0 ?'': product.price} </p>
+                        <p className="line-through">{product?.discount == 0 ?'': product?.price} </p>
                         <div className="flex flex-wrap">
                           <p className="text-neutral pl-2 font-normal text-[14px]">
-                           {product.discount}%
+                           {product?.discount}%
                           </p>
                         </div>
                       </div>
@@ -910,3 +904,12 @@ const index = ({products}) => {
 };
 
 export default index;
+export const getStaticProps = async () => {
+  const res = await fetch("https://api.trungthanhweb.com/api/products");
+  const data = await res.json();
+
+  return {
+    props: { products: data },
+  }
+
+}
