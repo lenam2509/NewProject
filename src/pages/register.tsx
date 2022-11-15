@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const register = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -69,15 +69,15 @@ const register = () => {
             </div>
             <div className="w-[60%] ml-[20%] mt-5 text-[13px] text-center">
               Bằng việc đăng ký, bạn đã đồng ý với
-              <Link to="/" className="ml-1 hover:underline">
+              <Link href="/" className="ml-1 hover:underline">
                 Hoang Phuc Store
               </Link>{" "}
               về <br />
-              <Link to="#" className="text-yellow-600 hover:underline">
+              <Link href="#" className="text-yellow-600 hover:underline">
                 Điều khoản dịch vụ
               </Link>{" "}
               và
-              <Link to="#" className="ml-1 text-yellow-600 hover:underline">
+              <Link href="#" className="ml-1 text-yellow-600 hover:underline">
                 Chính sách bảo mật
               </Link>{" "}
             </div>
@@ -106,7 +106,7 @@ const register = () => {
           </div>
           <div className="w-[90%] ml-[5%] mb-5">
             Bạn đã có tài khoản?{" "}
-            <Link to="/login" className="text-yellow-600 hover:underline">
+            <Link href="/login" className="text-yellow-600 hover:underline">
               Đăng nhập
             </Link>
           </div>

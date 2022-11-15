@@ -145,7 +145,7 @@ function Footer() {
           </div>
           <div className="flex flex-col text-center items-center justify-center mt-10 w-full">
             <a href="#" className="mb-3">
-              <img
+              <Image
                 alt="Hoàng Phúc Quốc Tế"
                 src="https://cdn.hoang-phuc.com/image/logo.png"
                 height={28}
@@ -216,9 +216,7 @@ function Footer() {
               href="http://online.gov.vn/Home/WebDetails/66103?AspxAutoDetectCookieSupport=1"
               target="_blank"
               rel="noreferrer"
-            >
-            
-            </a>
+            ></a>
           </div>
         </div>
       </div>
