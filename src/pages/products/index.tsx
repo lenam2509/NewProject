@@ -7,6 +7,7 @@ type Props = {
 };
 
 const index = ({ products }: Props) => {
+  console.log(products);
   const Filter1 = () => {
     const [showFilters, setShowfilters] = useState(false);
     const [check, setCheck] = useState({

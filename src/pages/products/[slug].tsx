@@ -4,6 +4,8 @@ import Image from "next/image";
 import axios from "axios";
 
 const ProductDetail = ({ data }: any) => {
+  console.log(data);
+  
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden bg-white mt-9">
