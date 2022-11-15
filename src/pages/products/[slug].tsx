@@ -2,45 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import axios from "axios";
-const ProductDetail = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [product, setProduct] = useState<any>({});
-  useEffect(() => {
-    if (slug) {
-      axios
-        .get(`https://api.trungthanhweb.com/api/singleProd/${slug}.html`)
-        .then((res) => setProduct(res.data));
-    }
-  }, [slug]);
 
-  
-  if (product) {
-    console.log("product:", product);
-  }else{
-    console.log("no product");
-    
-  }
-
+const ProductDetail = ({ data }: any) => {
   return (
     <>
       <section className="text-gray-700 body-font overflow-hidden bg-white mt-9">
-        {
-          product != null ? (   <div className="container px-5 py-24 mx-auto">
-          <div className="lg:w-4/5 mx-auto flex flex-wrap">
+        <div className="container px-5 py-24 mx-auto">
+        <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <Image
               width={500}
               height={500}
               alt="ecommerce"
               className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200"
-              src="/images/giay_1.jpg"
+              src={data.images[0]}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-               {product?.brandname}
+               {data.product[0].brandname}
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                {product?.name}
+              {data.product[0].name}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -99,7 +80,7 @@ const ProductDetail = () => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
-                  <span className="text-gray-600 ml-3">{product.seen} Reviews</span>
+                  <span className="text-gray-600 ml-3">{data.product[0].seen} Reviews</span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a className="text-gray-500">
@@ -183,7 +164,7 @@ const ProductDetail = () => {
 
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                {(product.price - (product.price * 33) / 100).toLocaleString(
+                {(data.product[0].price - (data.product[0].price * data.product[0].discount) / 100).toLocaleString(
                           "vi-VN"
                         )}
                         đ
@@ -206,12 +187,23 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-        </div>) : <div className='text-center mt-20 text-lg'>loading...</div>
-        }
-     
+        </div>
       </section>
     </>
   );
 };
 
 export default ProductDetail;
+
+export async function getServerSideProps(context: any) {
+  const slug = context.params.slug;
+  const res = await fetch(
+    `https://api.trungthanhweb.com/api/singleProd/${slug}.html`
+  );
+  const data = await res.json();
+  return {
+    props: {
+      data,
+    },
+  };
+}

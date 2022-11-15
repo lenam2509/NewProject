@@ -4,9 +4,9 @@ import React, { useState } from "react";
 
 type Props = {
   products: [];
-}
+};
 
-const index = ({products}: Props) => {
+const index = ({ products }: Props) => {
   const Filter1 = () => {
     const [showFilters, setShowfilters] = useState(false);
     const [check, setCheck] = useState({
@@ -37,14 +37,14 @@ const index = ({products}: Props) => {
       luxelondon,
     } = check;
 
-    const changeHandler = (e:any) => {
+    const changeHandler = (e: any) => {
       setCheck({
         ...check,
         [e.target.name]: e.target.checked,
       });
     };
 
-    const applyFilters = (e:any) => {
+    const applyFilters = (e: any) => {
       setCheck({
         ...check,
         leather: false,
@@ -65,7 +65,7 @@ const index = ({products}: Props) => {
       <div className="2xl:container 2xl:mx-auto">
         <div className=" md:py-12 lg:px-20 md:px-6 py-9 px-4">
           <p className=" text-sm leading-3 text-gray-600 font-normal mb-2">
-            Home - Products 
+            Home - Products
           </p>
           <div className=" flex justify-between items-center mb-4">
             <h2 className=" lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">
@@ -749,7 +749,7 @@ const index = ({products}: Props) => {
                       className=" mr-2 text-sm leading-3 font-normal text-gray-600"
                       htmlFor="LxL"
                     >
-                     Không
+                      Không
                     </label>
                   </div>
                 </div>
@@ -829,7 +829,7 @@ const index = ({products}: Props) => {
                   </div>
                 </div>
               </div> */}
-              {products.map((product:any, index) => (
+              {products.map((product: any, index) => (
                 <div className="w-full flex" key={index}>
                   <div
                     className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
@@ -846,7 +846,7 @@ const index = ({products}: Props) => {
                             className="indent-[-999px]"
                           />
                         </div>
-                        <Link href={"/products/" + product?.slug +".html"}>
+                        <Link href={"/products/" + product?.slug}>
                           <a className="w-full h-[288px] cursor-pointer relative flex items-center">
                             <Image
                               src={product?.image}
@@ -870,16 +870,21 @@ const index = ({products}: Props) => {
                     </span>
                     <div className="flex flex-wrap items-center">
                       <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
-                      {product?.discount > 0 ? (product?.price - (product?.price * product?.discount) / 100).toLocaleString(
-                          "vi-VN"
-                        ): product?.price.toLocaleString("vi-VN")} đ
-                        
+                        {product?.discount > 0
+                          ? (
+                              product?.price -
+                              (product?.price * product?.discount) / 100
+                            ).toLocaleString("vi-VN")
+                          : product?.price.toLocaleString("vi-VN")}{" "}
+                        đ
                       </div>
                       <div className="flex font-normal text-neutral-500 text-[14px]">
-                        <p className="line-through">{product?.discount == 0 ?'': product?.price} </p>
+                        <p className="line-through">
+                          {product?.discount == 0 ? "" : product?.price}{" "}
+                        </p>
                         <div className="flex flex-wrap">
                           <p className="text-neutral pl-2 font-normal text-[14px]">
-                           {product?.discount}%
+                            {product?.discount}%
                           </p>
                         </div>
                       </div>
@@ -904,12 +909,12 @@ const index = ({products}: Props) => {
 };
 
 export default index;
+
 export const getStaticProps = async () => {
   const res = await fetch("https://api.trungthanhweb.com/api/products");
   const data = await res.json();
 
   return {
     props: { products: data },
-  }
-
-}
+  };
+};
