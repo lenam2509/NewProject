@@ -852,7 +852,7 @@ const index = ({products}) => {
                             className="indent-[-999px]"
                           />
                         </div>
-                        <Link href={"/products/"}>
+                        <Link href={"/products/" + product.slug +".html"}>
                           <a className="w-full h-[288px] cursor-pointer relative flex items-center">
                             <Image
                               src={product.image}

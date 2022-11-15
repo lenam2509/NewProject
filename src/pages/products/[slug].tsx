@@ -9,7 +9,7 @@ const ProductDetail = () => {
   useEffect(() => {
     if (slug) {
       axios
-        .get(`https://api.trungthanhweb.com/api/singleProd/${slug}`)
+        .get(`https://api.trungthanhweb.com/api/singleProd/${slug}.html`)
         .then((res) => setProduct(res.data));
     }
   }, [slug]);
@@ -37,10 +37,10 @@ const ProductDetail = () => {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-               {product[0].brandname}
+               {product.brandname}
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                {product[0].name}
+                {product.name}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -99,7 +99,7 @@ const ProductDetail = () => {
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
-                  <span className="text-gray-600 ml-3">{product[0].soLuotXem} Reviews</span>
+                  <span className="text-gray-600 ml-3">{product.seen} Reviews</span>
                 </span>
                 <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
                   <a className="text-gray-500">
@@ -183,7 +183,7 @@ const ProductDetail = () => {
 
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                {(product[0].price - (product[0].price * 33) / 100).toLocaleString(
+                {(product.price - (product.price * 33) / 100).toLocaleString(
                           "vi-VN"
                         )}
                         đ
