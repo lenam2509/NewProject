@@ -4,7 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 
 const ProductDetail = ({ data }: any) => {
-  console.log(data);
+  // console.log(data);
   
   return (
     <>
