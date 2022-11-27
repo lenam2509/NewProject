@@ -8,6 +8,7 @@ module.exports = nextConfig
 // next.config.js
 module.exports = {
   images: {
-    domains: ['api.trungthanhweb.com'],
+    domains: ['api.trungthanhweb.com','cdn.hoang-phuc.com'],
+    
   },
 }

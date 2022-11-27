@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const index = () => {
+type Props = {
+  products: [];
+};
+
+const index = ({ products }: Props) => {
+  console.log(products);
   const Filter1 = () => {
     const [showFilters, setShowfilters] = useState(false);
     const [check, setCheck] = useState({
@@ -33,14 +38,14 @@ const index = () => {
       luxelondon,
     } = check;
 
-    const changeHandler = (e) => {
+    const changeHandler = (e: any) => {
       setCheck({
         ...check,
         [e.target.name]: e.target.checked,
       });
     };
 
-    const applyFilters = (e) => {
+    const applyFilters = (e: any) => {
       setCheck({
         ...check,
         leather: false,
@@ -61,7 +66,7 @@ const index = () => {
       <div className="2xl:container 2xl:mx-auto">
         <div className=" md:py-12 lg:px-20 md:px-6 py-9 px-4">
           <p className=" text-sm leading-3 text-gray-600 font-normal mb-2">
-            Home - Products 
+            Home - Products
           </p>
           <div className=" flex justify-between items-center mb-4">
             <h2 className=" lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">
@@ -745,7 +750,7 @@ const index = () => {
                       className=" mr-2 text-sm leading-3 font-normal text-gray-600"
                       htmlFor="LxL"
                     >
-                     Không
+                      Không
                     </label>
                   </div>
                 </div>
@@ -765,7 +770,6 @@ const index = () => {
       </div>
     );
   };
-  const products = [...Array(50)];
   return (
     <>
       <div className="w-[1200px] min-h-screen mx-auto pt-[122px]">
@@ -826,7 +830,7 @@ const index = () => {
                   </div>
                 </div>
               </div> */}
-              {products.map((product, index) => (
+              {products.map((product: any, index) => (
                 <div className="w-full flex" key={index}>
                   <div
                     className="flex flex-col h-full pb-[10px] mx-auto space-y-1 styles_product-item-container__Ff05D"
@@ -843,10 +847,10 @@ const index = () => {
                             className="indent-[-999px]"
                           />
                         </div>
-                        <Link href={"/products/"}>
+                        <Link href={"/products/" + product?.slug}>
                           <a className="w-full h-[288px] cursor-pointer relative flex items-center">
                             <Image
-                              src="/images/ao_thun1.jpg"
+                              src={product?.image}
                               alt="product item"
                               width={220}
                               height={288}
@@ -860,20 +864,28 @@ const index = () => {
                       <Link href={"/products/"}>
                         <a>
                           <p className="text-[13px] max-h-full line-clamp-2">
-                            KAPPA ÁO THUN TAY NGẮN MEN 341E69W
+                            {product?.name}
                           </p>
                         </a>
                       </Link>
                     </span>
                     <div className="flex flex-wrap items-center">
                       <div className="flex font-bold text-[#F63B3B] mr-2 text-[16px]">
-                        10000000 đ
+                        {product?.discount > 0
+                          ? (
+                              product?.price -
+                              (product?.price * product?.discount) / 100
+                            ).toLocaleString("vi-VN")
+                          : product?.price.toLocaleString("vi-VN")}{" "}
+                        đ
                       </div>
                       <div className="flex font-normal text-neutral-500 text-[14px]">
-                        <p className="line-through">1000000</p>
+                        <p className="line-through">
+                          {product?.discount == 0 ? "" : product?.price}{" "}
+                        </p>
                         <div className="flex flex-wrap">
                           <p className="text-neutral pl-2 font-normal text-[14px]">
-                            -33%
+                            {product?.discount}%
                           </p>
                         </div>
                       </div>
@@ -898,3 +910,12 @@ const index = () => {
 };
 
 export default index;
+
+export const getStaticProps = async () => {
+  const res = await fetch("https://api.trungthanhweb.com/api/products");
+  const data = await res.json();
+
+  return {
+    props: { products: data },
+  };
+};
